@@ -1,7 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>PrivateEvents</title>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title><%= full_title(yield(:title)) %></title>
+
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +13,12 @@
   </head>
 
   <body>
-    <%= yield %>
+  	<%= render 'layouts/header' %>
+
+  	<div class="center jumbotron">
+    	<%= yield %>
+    </div>
+
+    <%= render 'layouts/footer' %>
   </body>
 </html>

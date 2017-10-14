@@ -1,1 +1,26 @@
 @import "bootstrap";
+
+/* Header */
+
+header {
+	background-color: #f49e42;
+}
+
+/* Footer */
+
+footer {
+	background-color: #ffe5cc;
+	a {
+		color: grey;
+	}
+}
+
+/* Miscellaneous */
+
+.center {
+	text-align: center;
+}
+
+.jumbotron {
+	padding-top: 5%;
+}
