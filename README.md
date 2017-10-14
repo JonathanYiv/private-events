@@ -57,7 +57,7 @@ Invitations
 Users
 	Routes: All
 	Attributes:
-		email
+		email - string
 		password_digest
 
 Sessions
