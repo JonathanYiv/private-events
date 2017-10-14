@@ -1,0 +1,13 @@
+<% provide(:title, @event.title) %>
+
+<h1><%= @event.title %></h1>
+
+<hr>
+
+<p>Time: <%= @event.time.strftime("%l:%M %p") %>, <%= @event.date.strftime("%-m/%-d/%Y") %></p>
+
+<p>Location: <%= @event.location %></p>
+
+<hr>
+
+<p><%= @event.description %></p>
