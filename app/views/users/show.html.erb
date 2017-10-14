@@ -1,0 +1,11 @@
+<% provide(:title, "Profile") %>
+
+<h1>Profile</h1>
+
+<hr>
+
+<p>This is the account of <%= @user.email %>. The rest of the page is pending..</p>
+
+<%= link_to "Edit Account", edit_user_path(@user) %>
+<br>
+<%= link_to "Delete Account", @user, method: :delete, data: { confirm: "Are you sure?" } %>

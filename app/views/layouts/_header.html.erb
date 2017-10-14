@@ -1,3 +1,11 @@
-<header class="navbar fixed-top navbar-light">
+<header class="navbar navbar-light">
 	<%= link_to "Event.io", root_path, class: "navbar-brand" %>
+	<ul class="nav">
+		<li class="nav-item">
+			<%= link_to "Users", users_path, class: "nav-link" %>
+		</li>
+		<li class="nav-item">
+			<%= link_to "Sign Up", signup_path, class: "nav-link" %>
+		</li>
+	</ul>
 </header>
