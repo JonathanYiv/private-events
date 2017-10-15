@@ -22,6 +22,10 @@
 				<%= link_to "Account", current_user, class: "nav-link" %>
 			</li>
 			<li class="nav-item">
+				<% notifications = current_user.received_invitations.count %>
+				<%= link_to "Notifications #{notifications == 0 ? "" : "(#{notifications})"}", notifications_path, class: "nav-link" %>
+			</li>
+			<li class="nav-item">
 				<%= link_to "Log Out", logout_path, method: :delete, class: "nav-link" %>
 			</li>
 		<% end %>

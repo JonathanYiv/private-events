@@ -14,9 +14,10 @@ class InvitationsController < ApplicationController
   def create
     @invitation = Invitation.new(invitation_params)
     if @invitation.save
-      flash[:sucess] = "Your invitation has been sent."
+      flash[:success] = "Your invitation has been sent."
       redirect_to root_path
     else
+      @user = User.find(params[:invitation][:invited_id])
       render 'new'
     end
   end
