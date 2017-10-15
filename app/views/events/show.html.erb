@@ -4,7 +4,7 @@
 
 <hr>
 
-<p>Time: <%= @event.time.strftime("%l:%M %p") %>, <%= @event.date.strftime("%-m/%-d/%Y") %></p>
+<p>Time: <%= @event.start_time.strftime("%I:%M %p, %D") %></p>
 
 <p>Location: <%= @event.location %></p>
 

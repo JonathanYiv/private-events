@@ -2,6 +2,8 @@ class EventsController < ApplicationController
   before_action :logged_in_user, only: [:new, :create, :edit, :update, :destroy]
 
   def index
+    @future_events = Event.future_events
+    @past_events = Event.past_events
   end
 
   def show
@@ -34,7 +36,7 @@ class EventsController < ApplicationController
   private
 
     def event_params
-      params.require(:event).permit(:title, :location, :date, :time, :description)
+      params.require(:event).permit(:title, :location, :start_time, :description)
     end
 
     def logged_in_user
