@@ -8,7 +8,7 @@ Events have a date and location and can be attended by many users.
 
 This is a project from [The Odin Project](https://www.theodinproject.com/courses/ruby-on-rails/lessons/associations).
 
-[Screenshot here...]
+![Screenshot](/screenshot.png)
 
 ## Pre-Project Thoughts
 
@@ -116,4 +116,12 @@ User tries to attend an event, but it redirects to login page
 
 ## Post-Project Thoughts
 
-[Project Incomplete...]
+1. I have Rails Associations down pat. This was awesome practice. It was a wonderful feeling to draft the associations, contemplate about them for several minutes, adjust them, and then test them in the console to find success. I was wrong in my initial drafts but I see now the small differences that allow one to craft great associations.
+
+2. This was my second iteration of building a Rails site, and a lot more of the basics and generic 'boilerplate' code is starting to become like second nature. Not fully yet, but it is definitely easily within my grasp.
+
+3. I regret to say I did not iterate on the design of the website immensely. I used very similar bootstrap styling, but in reality, I think I truly need to dive into design in the next section of Odin to get good at that. So for now, I will focus on Rails itself, and not design except to a small degree.
+
+4. I also did not tackle Devise/FactoryGirl/RSpec. I did learn about Faker and know how to use it though now, although I have not yet. I will leave that on the to do list for next time.
+
+5. I will come back and add testing to this project.. someday.
