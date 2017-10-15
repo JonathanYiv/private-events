@@ -14,8 +14,13 @@ class InvitationsController < ApplicationController
     @invitation = current_user.sent_invitations.new
     @user = User.find(params[:user_id])
     @invitation.invited = @user
-    # if a user is already attending the event, they should not be able to be invited to it
-    # @possible_events = current_user.hosted_events.joins(:attendances).where("attendances.user_id != ?", @user.id)
+
+    @possible_events = [] # move logic to Model?
+    current_user.hosted_events.each do |event|
+      unless @user.attended_events.include?(event)
+        @possible_events << event
+      end
+    end
   end
 
   def create

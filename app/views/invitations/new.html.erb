@@ -23,7 +23,7 @@
 	<% end %>
 	<%= f.hidden_field :invited_id, value: @invitation.invited_id %>
 	<%= f.hidden_field :inviter_id, value: @invitation.inviter_id %>
-	<%= f.collection_select :event_id, current_user.hosted_events, :id, :title %>
+	<%= f.collection_select :event_id, @possible_events, :id, :title %>
 	<br>
 	<%= f.submit "Invite", class: "btn-primary btn-lg" %>
 <% end %>
