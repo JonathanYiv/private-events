@@ -12,11 +12,13 @@ Rails.application.routes.draw do
   delete  '/logout',        to: 'sessions#destroy'
 
   post    '/attend',        to: 'attendances#create'
+  get     '/attend',        to: 'attendances#create'
   delete  '/unattend',      to: 'attendances#destroy'
 
   get     '/invite',        to: 'invitations#new'
   post    '/invite',        to: 'invitations#create'
   get     '/notifications', to: 'invitations#show'
+  get     '/invitation',    to: 'invitations#destroy'
 
   resources :users
   resources :events

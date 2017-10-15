@@ -3,26 +3,40 @@ class InvitationsController < ApplicationController
   before_action :different_user, only: :new
 
   def show
+    invitations = current_user.received_invitations
+    @events = []
+    invitations.each do |invitation|
+      @events << Event.find(invitation.event_id)
+    end
   end
 
   def new
     @invitation = current_user.sent_invitations.new
     @user = User.find(params[:user_id])
     @invitation.invited = @user
+    # if a user is already attending the event, they should not be able to be invited to it
+    # @possible_events = current_user.hosted_events.joins(:attendances).where("attendances.user_id != ?", @user.id)
   end
 
   def create
     @invitation = Invitation.new(invitation_params)
+    @user = User.find(params[:invitation][:invited_id])
     if @invitation.save
       flash[:success] = "Your invitation has been sent."
-      redirect_to root_path
+      redirect_to @user
     else
-      @user = User.find(params[:invitation][:invited_id])
       render 'new'
     end
   end
 
   def destroy
+    @invitation = Invitation.find_by(invited_id: current_user.id, event_id: params[:event_id])
+    @invitation.destroy
+    if params[:accept] == 'true'
+      redirect_to attend_path(event_id: params[:event_id], user_id: current_user.id)
+    else
+      redirect_to notifications_path
+    end
   end
 
   private
