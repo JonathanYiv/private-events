@@ -4,8 +4,14 @@
 
 <hr>
 
-<p>This is the account of <%= @user.email %>. The rest of the page is pending..</p>
+<p>This is the account of <%= @user.email %>.</p>
 
 <%= link_to "Edit Account", edit_user_path(@user) %>
 <br>
 <%= link_to "Delete Account", @user, method: :delete, data: { confirm: "Are you sure?" } %>
+
+<hr>
+
+<h2>Hosted Events</h2>
+
+<%= render @user.hosted_events %>

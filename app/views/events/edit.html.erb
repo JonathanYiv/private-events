@@ -1,5 +1,8 @@
 <% provide(:title, "Edit Event") %>
+<% provide(:button, "Submit Changes") %>
 
-<h1>Edit Event</h1> <!-- change "event" to the event name later -->
+<h1>Edit <%= @event.title %></h1>
 
 <hr>
+
+<%= render 'form' %>
