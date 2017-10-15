@@ -15,3 +15,15 @@
 <h2>Hosted Events</h2>
 
 <%= render @user.hosted_events %>
+
+<hr>
+
+<h2>Attending Events</h2>
+
+<%= render @user.attended_events.future_events %>
+
+<hr>
+
+<h2>Attended Events</h2>
+
+<%= render @user.attended_events.past_events %>

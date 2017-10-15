@@ -4,6 +4,12 @@
 
 <p>Created by <%= @event.creator.email %></p>
 
+<% if @event.attendees.include?(current_user) %>
+	<%= link_to "Leave", unattend_path(event: @event.id), method: :delete, class: "btn-primary btn-lg" %> <!-- working on -->
+<% else %>
+	<%= link_to "Attend", attend_path(event: @event.id), method: :post, class: "btn-primary btn-lg" %>
+<% end %>
+
 <hr>
 
 <p>Time: <%= @event.start_time.strftime("%I:%M %p, %D") %></p>
@@ -19,3 +25,9 @@
 <%= link_to "Edit Event", edit_event_path %>
 <br>
 <%= link_to "Delete Event", @event, method: :delete, data: { confirm: "Are you sure you want to delete this event? It can not be recovered." } %>
+
+<hr>
+
+<h2>Attending</h2>
+
+<%= render @event.attendees %>
