@@ -5,9 +5,9 @@
 <p>Created by <%= @event.creator.email %></p>
 
 <% if @event.attendees.include?(current_user) %>
-	<%= link_to "Leave", unattend_path(event: @event.id), method: :delete, class: "btn-primary btn-lg" %> <!-- working on -->
+	<%= link_to "Leave", unattend_path(event_id: @event.id, user_id: current_user.id), method: :delete, class: "btn-primary btn-lg" %>
 <% else %>
-	<%= link_to "Attend", attend_path(event: @event.id), method: :post, class: "btn-primary btn-lg" %>
+	<%= link_to "Attend", attend_path(event_id: @event.id, user_id: current_user.id), method: :post, class: "btn-primary btn-lg" %>
 <% end %>
 
 <hr>
@@ -30,4 +30,12 @@
 
 <h2>Attending</h2>
 
-<%= render @event.attendees %>
+<% @event.attendees.each do |attendee| %>
+	<li class="list-group-item">
+		<%= link_to attendee.email, attendee %>
+		<% if current_user == @event.creator %>
+			<br>
+			<%= link_to "Remove", unattend_path(event_id: @event.id, user_id: attendee.id), method: :delete, class: "btn-seconday btn-sm" %>
+		<% end %>
+	</li>
+<% end %>
